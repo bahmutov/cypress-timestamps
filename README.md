@@ -3,6 +3,61 @@
 
 Read the blog post [Add Timestamps To Cypress](https://glebbahmutov.com/blog/cypress-timestamps/)
 
+## Install
+
+```shell
+$ npm i -D cypress-timestamps
+# or if using Yarn
+$ yarn add -D cypress-timestamps
+```
+
+## Use
+
+Include the plugin from your support file
+
+```js
+// cypress/support/index.js
+require('cypress-timestamps/support')()
+```
+
+Include this plugin from your project's plugin file. This is optional and is needed only if you enable the option `terminal: true` (see below)
+
+```js
+// cypress/plugin/index.js
+require('cypress-timestamps/plugin')()
+```
+
+## Options
+
+By default, this plugin adds the timestamps to the error message if a test fails, and to the parent commands in the Command Log. You can also enable printing the test start and end timestamps in the terminal by registering the plugin (see above) and enabling the option when registering the support file.
+
+```js
+// cypress/support/index.js
+require('cypress-timestamps/support')({
+  terminal: true,
+  error: true,
+  commandLog: true,
+})
+```
+
+### terminal
+
+Prints timestamps around each test, prints a timestamp of the screenshot taken on test failure
+
+![Terminal timestamps](./images/screenshot-timestamp.png)
+
+### error
+
+Adds the timestamp to any error thrown by the test
+
+![Error timestamp](./images/timestamp-error.png)
+
+### commandLog
+
+Adds timestamps before each parent command that starts a new chain of commands
+
+![Command Log timestamps](./images/parent-timestamps.png)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
