@@ -27,8 +27,10 @@ Include this plugin from your project's plugin file. This is optional and is nee
 ```js
 // cypress/plugin/index.js
 
-// https://github.com/bahmutov/cypress-timestamps
-require('cypress-timestamps/plugin')()
+module.exports = (on, config) => {
+  // https://github.com/bahmutov/cypress-timestamps
+  require('cypress-timestamps/plugin')(on)
+}
 ```
 
 ## Options
