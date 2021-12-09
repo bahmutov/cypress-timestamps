@@ -1,0 +1,26 @@
+{
+  "name": "cypress-timestamps",
+  "version": "1.0.0",
+  "description": "Add timestamps to Cypress tests, error screenshots, and Command Log",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/cypress-timestamps.git"
+  },
+  "keywords": [
+    "cypress-plugin"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/cypress-timestamps/issues"
+  },
+  "homepage": "https://github.com/bahmutov/cypress-timestamps#readme",
+  "devDependencies": {
+    "cypress": "^9.1.1",
+    "prettier": "^2.5.1"
+  }
+}
