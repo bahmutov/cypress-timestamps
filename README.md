@@ -1,4 +1,4 @@
-# cypress-timestamps
+# cypress-timestamps ![cypress version](https://img.shields.io/badge/cypress-9.1.1-brightgreen)
 > Add timestamps to Cypress tests, error screenshots, and Command Log
 
 Read the blog post [Add Timestamps To Cypress](https://glebbahmutov.com/blog/cypress-timestamps/)
