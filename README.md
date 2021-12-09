@@ -17,6 +17,8 @@ Include the plugin from your support file
 
 ```js
 // cypress/support/index.js
+
+// https://github.com/bahmutov/cypress-timestamps
 require('cypress-timestamps/support')()
 ```
 
@@ -24,6 +26,8 @@ Include this plugin from your project's plugin file. This is optional and is nee
 
 ```js
 // cypress/plugin/index.js
+
+// https://github.com/bahmutov/cypress-timestamps
 require('cypress-timestamps/plugin')()
 ```
 
@@ -33,6 +37,8 @@ By default, this plugin adds the timestamps to the error message if a test fails
 
 ```js
 // cypress/support/index.js
+
+// https://github.com/bahmutov/cypress-timestamps
 require('cypress-timestamps/support')({
   terminal: true,
   error: true,
