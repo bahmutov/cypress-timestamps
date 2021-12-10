@@ -34,7 +34,6 @@ function registerCypressTimestamps(options = defaultOptions) {
   if (combinedOptions.commandLog) {
     Cypress.on('command:start', ({ attributes }) => {
       if (attributes.type === 'parent') {
-        console.log(attributes)
         const at = new Date().toISOString()
         Cypress.log({
           name: `${at} - ${attributes.name}`,
