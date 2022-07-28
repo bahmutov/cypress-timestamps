@@ -1,6 +1,3 @@
 /// <reference types="cypress" />
-require('../../support')({
-  terminal: true,
-  error: true,
-  commandLog: true,
-})
+// you can register the cypress-timestamps plugin here
+// but for testing different scenario, we register it in each spec
