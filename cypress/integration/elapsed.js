@@ -3,12 +3,11 @@
 /// <reference types="cypress" />
 
 require('../../support')({
-  terminal: true,
-  error: true,
   commandLog: true,
+  elapsed: true,
 })
 
-describe('Timestamps', () => {
+describe('Elapsed duration', () => {
   beforeEach(() => {
     cy.wait(5000)
   })

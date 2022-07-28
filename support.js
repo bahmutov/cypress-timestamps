@@ -1,7 +1,10 @@
+const format = require('format-duration')
+
 const defaultOptions = {
   terminal: false, // show timestamps in the terminal around the test
   error: true, // add the timestamp to the error message
   commandLog: true, // add the timestamps to the Command Log parent commands
+  elapsed: false, // print absolute timestamps
 }
 
 /**
@@ -21,6 +24,11 @@ function registerCypressTimestamps(options = defaultOptions) {
     })
   }
 
+  let testStartedAt
+  Cypress.on('test:before:run', () => {
+    testStartedAt = new Date()
+  })
+
   if (combinedOptions.error) {
     // https://on.cypress.io/catalog-of-events
     Cypress.on('fail', (err) => {
@@ -33,11 +41,19 @@ function registerCypressTimestamps(options = defaultOptions) {
 
   if (combinedOptions.commandLog) {
     Cypress.on('command:start', ({ attributes }) => {
-      if (attributes.type === 'parent') {
-        const at = new Date().toISOString()
-        Cypress.log({
-          name: `${at} - ${attributes.name}`,
-        })
+      if (attributes.type !== 'child') {
+        if (combinedOptions.elapsed && testStartedAt) {
+          const elapsed = new Date() - testStartedAt
+          const formatted = format(elapsed, { leading: true })
+          Cypress.log({
+            name: `${formatted} - ${attributes.name}`,
+          })
+        } else {
+          const at = new Date().toISOString()
+          Cypress.log({
+            name: `${at} - ${attributes.name}`,
+          })
+        }
       }
     })
   }

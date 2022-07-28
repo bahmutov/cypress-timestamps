@@ -1,4 +1,5 @@
 # cypress-timestamps ![cypress version](https://img.shields.io/badge/cypress-9.7.0-brightgreen)
+
 > Add timestamps to Cypress tests, error screenshots, and Command Log
 
 Read the blog post [Add Timestamps To Cypress](https://glebbahmutov.com/blog/cypress-timestamps/)
@@ -66,6 +67,20 @@ Adds timestamps before each parent command that starts a new chain of commands
 
 ![Command Log timestamps](./images/parent-timestamps.png)
 
+### elapsed
+
+When printing the timestamps to the command log, you can print either the absolute timestamp (by default), or the time since the test has started.
+
+```js
+// https://github.com/bahmutov/cypress-timestamps
+require('cypress-timestamps/support')({
+  commandLog: true,
+  elapsed: true,
+})
+```
+
+![Time since the test started for each command](./images/elapsed.png)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
@@ -106,4 +121,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-
