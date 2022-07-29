@@ -81,6 +81,20 @@ require('cypress-timestamps/support')({
 
 ![Time since the test started for each command](./images/elapsed.png)
 
+### Stamp all commands
+
+By default, only the parent and dual commands get a timestamp in the Command Log to avoid verbose clutter. You can enable stamping every command using the `commandLog: "all"` option.
+
+```js
+// https://github.com/bahmutov/cypress-timestamps
+require('cypress-timestamps/support')({
+  commandLog: 'all',
+  elapsed: true,
+})
+```
+
+![Elapsed time for every command](./images/all.png)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
@@ -121,3 +135,7 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+
+```
+
+```

@@ -41,7 +41,7 @@ function registerCypressTimestamps(options = defaultOptions) {
 
   if (combinedOptions.commandLog) {
     Cypress.on('command:start', ({ attributes }) => {
-      if (attributes.type !== 'child') {
+      if (combinedOptions.commandLog === 'all' || attributes.type !== 'child') {
         if (combinedOptions.elapsed && testStartedAt) {
           const elapsed = new Date() - testStartedAt
           const formatted = format(elapsed, { leading: true })
