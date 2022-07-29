@@ -95,6 +95,8 @@ require('cypress-timestamps/support')({
 
 ![Elapsed time for every command](./images/all.png)
 
+**Tip:** looking to slow down your Cypress tests? Use my [cypress-slow-down](https://github.com/bahmutov/cypress-slow-down) plugin.
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
