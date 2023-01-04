@@ -16,5 +16,8 @@ describe('Timestamps', () => {
   it('finishes the test', function () {
     cy.wait(1000)
     cy.wait(1000)
+
+    cy.log('**next wait should not have a timestamp**')
+    cy.wait(1000, { log: false })
   })
 })

@@ -41,6 +41,14 @@ function registerCypressTimestamps(options = defaultOptions) {
 
   if (combinedOptions.commandLog) {
     Cypress.on('command:start', ({ attributes }) => {
+      // check if the command used "log: false" option
+      if (Array.isArray(attributes.args)) {
+        const commandOptions = Cypress._.last(attributes.args)
+        if (commandOptions.log === false) {
+          return
+        }
+      }
+
       if (combinedOptions.commandLog === 'all' || attributes.type !== 'child') {
         if (combinedOptions.elapsed && testStartedAt) {
           const elapsed = new Date() - testStartedAt
