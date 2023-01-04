@@ -44,7 +44,7 @@ function registerCypressTimestamps(options = defaultOptions) {
       // check if the command used "log: false" option
       if (Array.isArray(attributes.args)) {
         const commandOptions = Cypress._.last(attributes.args)
-        if (commandOptions.log === false) {
+        if (commandOptions && commandOptions.log === false) {
           return
         }
       }
