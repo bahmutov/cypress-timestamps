@@ -41,6 +41,11 @@ function registerCypressTimestamps(options = defaultOptions) {
 
   if (combinedOptions.commandLog) {
     Cypress.on('command:start', ({ attributes }) => {
+      if (attributes.name === 'then' || attributes.name === 'log-restore') {
+        // some commands have no meaningful timestamp
+        return
+      }
+
       // check if the command used "log: false" option
       if (Array.isArray(attributes.args)) {
         const commandOptions = Cypress._.last(attributes.args)
