@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "test": "cypress run",
+    "open": "cypress open",
     "semantic-release": "semantic-release",
     "badges": "npx -p dependency-version-badge update-badge cypress"
   },
@@ -25,7 +26,7 @@
   },
   "homepage": "https://github.com/bahmutov/cypress-timestamps#readme",
   "devDependencies": {
-    "cypress": "^9.7.0",
+    "cypress": "^15.7.0",
     "prettier": "^3.7.3",
     "semantic-release": "^25.0.2"
   },
