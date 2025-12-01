@@ -1,4 +1,4 @@
-# cypress-timestamps ![cypress version](https://img.shields.io/badge/cypress-9.7.0-brightgreen)
+# cypress-timestamps ![cypress version](https://img.shields.io/badge/cypress-15.7.0-brightgreen)
 
 > Add timestamps to Cypress tests, error screenshots, and Command Log
 
@@ -17,21 +17,28 @@ $ yarn add -D cypress-timestamps
 Include the plugin from your support file
 
 ```js
-// cypress/support/index.js
+// cypress/support/e2e.js
 
 // https://github.com/bahmutov/cypress-timestamps
 require('cypress-timestamps/support')()
 ```
 
-Include this plugin from your project's plugin file. This is optional and is needed only if you enable the option `terminal: true` (see below)
+Include this plugin from your project's Cypress config file. This is optional and is needed only if you enable the option `terminal: true` (see below)
 
 ```js
-// cypress/plugin/index.js
+// cypress.config.js
 
-module.exports = (on, config) => {
-  // https://github.com/bahmutov/cypress-timestamps
-  require('cypress-timestamps/plugin')(on)
-}
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+  fixturesFolder: false,
+  e2e: {
+    setupNodeEvents(on, config) {
+      // https://github.com/bahmutov/cypress-timestamps
+      return require('cypress-timestamps/plugin')(on, config)
+    },
+  },
+})
 ```
 
 ## Options
@@ -39,7 +46,7 @@ module.exports = (on, config) => {
 By default, this plugin adds the timestamps to the error message if a test fails, and to the parent commands in the Command Log. You can also enable printing the test start and end timestamps in the terminal by registering the plugin (see above) and enabling the option when registering the support file.
 
 ```js
-// cypress/support/index.js
+// cypress/support/e2e.js
 
 // https://github.com/bahmutov/cypress-timestamps
 require('cypress-timestamps/support')({
@@ -137,7 +144,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-
-```
-
-```
