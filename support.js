@@ -57,7 +57,10 @@ function registerCypressTimestamps(options = defaultOptions) {
       if (combinedOptions.commandLog === 'all' || attributes.type !== 'child') {
         if (combinedOptions.elapsed && testStartedAt) {
           const elapsed = new Date() - testStartedAt
-          const formatted = format(elapsed, { leading: true })
+          const formatted = format(elapsed, {
+            leading: true,
+            ms: true
+          })
           Cypress.log({
             name: `${formatted} - ${attributes.name}`,
           })

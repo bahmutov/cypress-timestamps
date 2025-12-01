@@ -30,6 +30,6 @@
     "semantic-release": "^18.0.1"
   },
   "dependencies": {
-    "format-duration": "^2.0.0"
+    "format-duration": "^3.0.0"
   }
 }
