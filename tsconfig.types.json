@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": false
+  },
+  "files": [
+    "plugin.d.ts",
+    "support.d.ts"
+  ]
+}
