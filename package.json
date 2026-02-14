@@ -4,11 +4,14 @@
   "description": "Add timestamps to Cypress tests, error screenshots, and Command Log",
   "files": [
     "support.js",
-    "plugin.js"
+    "plugin.js",
+    "support.d.ts",
+    "plugin.d.ts"
   ],
   "scripts": {
     "test": "cypress run",
     "open": "cypress open",
+    "typecheck": "tsc -p tsconfig.types.json",
     "semantic-release": "semantic-release",
     "badges": "npx -p dependency-version-badge update-badge cypress"
   },
@@ -28,7 +31,8 @@
   "devDependencies": {
     "cypress": "^15.7.0",
     "prettier": "^3.7.3",
-    "semantic-release": "^25.0.2"
+    "semantic-release": "^25.0.2",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "format-duration": "^3.0.0"

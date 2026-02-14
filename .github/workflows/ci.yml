@@ -11,6 +11,9 @@ jobs:
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
 
+      - name: Check type declarations 🔎
+        run: npm run typecheck
+
       - name: Semantic Release 🚀
         uses: cycjimmy/semantic-release-action@v4
         with:
