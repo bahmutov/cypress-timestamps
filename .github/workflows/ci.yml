@@ -1,11 +1,25 @@
 name: ci
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      issues: write
+      id-token: write # Required for OIDC
+
     steps:
+      # important: the default Node version is v18
+      # which gives us an auth error trying to release
+      # so install v24 explicitly
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
       - name: Checkout 🛎
-        uses: actions/checkout@v5
+        # https://github.com/actions/checkout
+        uses: actions/checkout@v6
 
       - name: Run tests 🧪
         # https://github.com/cypress-io/github-action
@@ -15,9 +29,9 @@ jobs:
         run: npm run typecheck
 
       - name: Semantic Release 🚀
-        uses: cycjimmy/semantic-release-action@v4
+        # https://github.com/cycjimmy/semantic-release-action
+        uses: cycjimmy/semantic-release-action@v6
         with:
           branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
